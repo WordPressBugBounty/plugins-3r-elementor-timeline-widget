@@ -36,6 +36,11 @@ Video tutorial in Russian language
 
 
 == Changelog ==
+= 2.4 =
+
+* Release Date - 04 May , 2025*
+
+* Removed the Elementor deprecated functions.
 
 = 2.3 =
 

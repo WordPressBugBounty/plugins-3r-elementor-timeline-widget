@@ -4,12 +4,12 @@
  * Plugin Name: 3r Elementor Timeline Widget
  * Description: 3r Elementor Timeline Widget Plugin add timeline element to Elementor Page builder.
  * Plugin URI: https://wordpress.org/plugins/3r-elementor-timeline-widget
- * Version: 2.3
+ * Version: 2.4
  * Author: B.M. Rafiul Alam
  * Author URI: https://themesbyte.com/
  * Text Domain: be-pack
  * Elementor requires at least: 3.0.0
- * Elementor tested up to: 3.20.2
+ * Elementor tested up to: 3.28.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
