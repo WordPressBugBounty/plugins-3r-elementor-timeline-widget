@@ -1,4 +1,3 @@
-
 .timeline img {
   border: 0;
   max-width: 100%;
@@ -111,7 +110,7 @@
   top: 23px;
   left: 50%;
   text-align: center;
-  background: #2196F3;
+  background: #2196f3;
   color: #fff;
   width: 25px;
   height: 25px;
@@ -125,7 +124,7 @@
   z-index: 1;
 }
 .timeline-panel {
-	/* display:flex */
+  /* display:flex */
 }
 .tl-heading h4 {
   margin: 0;
@@ -143,47 +142,47 @@
 }
 @media (max-width: 991px) {
   .timeline li .timeline-panel {
-      width: 44%;
+    width: 44%;
   }
 }
 @media (max-width: 700px) {
   ul.timeline:before {
-      left: 40px;
+    left: 40px;
   }
   .tldate {
-      width: 140px;
+    width: 140px;
   }
   ul.timeline li .timeline-panel {
-      width: calc(100% - 90px);
-      width: -moz-calc(100% - 90px);
-      width: -webkit-calc(100% - 90px);
+    width: calc(100% - 90px);
+    width: -moz-calc(100% - 90px);
+    width: -webkit-calc(100% - 90px);
   }
   ul.timeline li .tl-circ {
-      top: 22px;
-      left: 28px;
-      margin-left: 0;
+    top: 22px;
+    left: 28px;
+    margin-left: 0;
   }
   ul.timeline > li > .tldate {
-      margin: 0;
+    margin: 0;
   }
   ul.timeline > li > .timeline-panel {
-      float: right;
+    float: right;
   }
   ul.timeline > li > .timeline-panel:before {
-      border-left-width: 0;
-      border-right-width: 15px;
-      left: -15px;
-      right: auto;
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
   }
   ul.timeline > li > .timeline-panel:after {
-      border-left-width: 0;
-      border-right-width: 14px;
-      left: -14px;
-      right: auto;
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
   }
   .timeline-panel {
     display: block;
-}
+  }
 }
 .timeline .text-muted {
   padding: 5px;
@@ -191,21 +190,26 @@
   color: white;
   border-radius: 5px;
 }
-.timeline .desc{
-margin-top: 20px;
-/* color: #687383; */
-/* font-size:  14px; */
-line-height: 24px;
+.timeline .desc {
+  margin-top: 20px;
+  /* color: #687383; */
+  /* font-size:  14px; */
+  line-height: 24px;
 }
-.be-pack.timeline .timeline_pic{
- padding: 0px 15px 0px 0px;
+.be-pack.timeline .timeline_pic {
+  padding: 0px 15px 0px 0px;
 }
-.be-title{
-	display:inline-block
+.be-title {
+  display: inline-block;
 }
-.tl-content img{
-	float:left
+.tl-content img {
+  float: left;
 }
-.be-content p{
-	margin-bottom:5px
+.be-content p {
+  margin-bottom: 5px;
+}
+.tl-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

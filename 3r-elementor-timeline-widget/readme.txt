@@ -1,12 +1,12 @@
-=== Elementor Timeline Widget ===
+=== Timeline Widget for Elementor ===
 Contributors: rafiul17,tbyte
 Donate link: https://www.paypal.com/donate?hosted_button_id=ZC2N2PY77T9HL
 Tags: Elementor, addons, timeline, widget, roadmap
-Requires at least: 5.0
-Tested up to: 6.7.1
-Stable tag: 6.4
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: 5.2
+Tested up to: 6.8
+Stable tag: 2.6
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
 Add Elementor Timeline Widget with easy way.
 
@@ -36,6 +36,11 @@ Video tutorial in Russian language
 
 
 == Changelog ==
+= 2.5 =
+
+* Release Date - 14 July , 2025*
+* Removed the Licensing/Trademark Violation.
+
 = 2.4 =
 
 * Release Date - 04 May , 2025*

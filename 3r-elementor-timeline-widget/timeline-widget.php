@@ -1,10 +1,10 @@
 <?php
 /**
- * Elementor Timeline Widget.
+ * Timeline Widget for Elementor.
  *
  * @since 1.0.0
  */
-namespace BePack\Widgets;
+namespace twe\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -20,7 +20,7 @@ use Elementor\Scheme_Color;
 use Elementor\Group_Control_Text_Shadow;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-class Be_Pack_Widget_Timeline extends Widget_Base {
+class TweTimelineWidget extends Widget_Base {
 	/**
 	 * Get widget name.
 	 *
@@ -46,7 +46,7 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Timelines', 'be-pack' );
+		return __( 'Timeline', '3r-elementor-timeline-widget' );
 	}
 
 	/**
@@ -90,7 +90,7 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => __( 'Timeline', 'be-pack' ),
+				'label' => __( 'Timeline', '3r-elementor-timeline-widget' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -101,7 +101,7 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 		$repeater->add_control(
 			'image',
 			[
-				'label' => __( 'Choose Image', 'be-pack' ),
+				'label' => __( 'Choose Image', '3r-elementor-timeline-widget' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -117,9 +117,9 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 		);
 		$repeater->add_control(
 			'list_title', [
-				'label' => __( 'Title', 'be-pack' ),
+				'label' => __( 'Title', '3r-elementor-timeline-widget' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => __( 'Timeline' , 'be-pack' ),
+				'default' => __( 'Timeline' , '3r-elementor-timeline-widget' ),
 				'label_block' => true,
 			]
 		);
@@ -127,9 +127,9 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 
 		$repeater->add_control(
 			'list_content', [
-				'label' => __( 'Timelines', 'be-pack' ),
+				'label' => __( 'Timelines', '3r-elementor-timeline-widget' ),
 				'type' => \Elementor\Controls_Manager::WYSIWYG,
-				'default' => __( 'Item content. Click the edit button to change this text.' , 'be-pack' ),
+				'default' => __( 'Item content. Click the edit button to change this text.' , '3r-elementor-timeline-widget' ),
 				'show_label' => false,
 			]
 		);
@@ -141,12 +141,12 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 				'fields' =>  $repeater->get_controls(),
 				'default' => [
 					[
-						'list_title' => __( 'Timeline', 'be-pack' ),
-						'list_content' => __( 'Item content. Click the edit button to change this text.', 'be-pack' ),
+						'list_title' => __( 'Timeline', '3r-elementor-timeline-widget' ),
+						'list_content' => __( 'Item content. Click the edit button to change this text.', '3r-elementor-timeline-widget' ),
 					],
 					[
-						'list_title' => __( 'Timeline', 'be-pack' ),
-						'list_content' => __( 'Item content. Click the edit button to change this text.', 'be-pack' ),
+						'list_title' => __( 'Timeline', '3r-elementor-timeline-widget' ),
+						'list_content' => __( 'Item content. Click the edit button to change this text.', '3r-elementor-timeline-widget' ),
 					],
 				],
 				'title_field' => '{{{ list_title }}}',
@@ -158,14 +158,14 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 	$this->start_controls_section(
 		'content_style',
 		[
-			'label' => __( 'Content Style', 'be-pack' ),
+			'label' => __( 'Content Style', '3r-elementor-timeline-widget' ),
 			'tab' => Controls_Manager::TAB_STYLE,
 		]
 	);
 	$this->add_control(
 		'header_size',
 		[
-			'label' => esc_html__( 'Title HTML Tag', 'be-pack' ),
+			'label' => esc_html__( 'Title HTML Tag', '3r-elementor-timeline-widget' ),
 			'type' => Controls_Manager::SELECT,
 			'options' => [
 				'h1' => 'H1',
@@ -183,10 +183,10 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 	);
 	$this->add_control(
 		'title_color', [
-		'label' => __( 'Title Fonts Color', 'be-pack' ),
+		'label' => __( 'Title Fonts Color', '3r-elementor-timeline-widget' ),
 		'type' => \Elementor\Controls_Manager::COLOR,
 		'selectors' => [
-				'{{WRAPPER}} .tl-heading h4' => 'color: {{title_color}}',
+				'{{WRAPPER}} .tl-heading h4' => 'color: {{VALUE}}',
 			],
 		'default' => '#333333',
 	]
@@ -211,7 +211,7 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
     $this->add_control(
 		'title_margin',
 		[
-			'label' => __( 'Title Margin', 'be-pack' ),
+			'label' => __( 'Title Margin', '3r-elementor-timeline-widget' ),
 			'type' => Controls_Manager::DIMENSIONS,
 			'size_units' => [ 'px', '%' ],
 			'selectors' => [
@@ -222,7 +222,7 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 	);
 	$this->add_control(
 		'content_color', [
-		'label' => __( 'Content Fonts Color', 'be-pack' ),
+		'label' => __( 'Content Fonts Color', '3r-elementor-timeline-widget' ),
 		'type' => \Elementor\Controls_Manager::COLOR,
 		'selectors' => [
 			'{{WRAPPER}} .be-pack .timeline-panel, .be-pack .timeline-panel p' => 'color: {{content_color}}',
@@ -244,14 +244,14 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_style',
 			[
-				'label' => __( 'Box Style', 'be-pack' ),
+				'label' => __( 'Box Style', '3r-elementor-timeline-widget' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_control(
 			'theme_color', [
-				'label' => __( 'Border Color', 'be-pack' ),
+				'label' => __( 'Border Color', '3r-elementor-timeline-widget' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .timeline li .tl-circ' => 'background: {{theme_color}};border:5px solid #e6e6e6 !important',
@@ -261,9 +261,10 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 				],
 			]
 		);
+		
 		$this->add_control(
 			'bg_color', [
-			'label' => __( 'Background Color', 'be-pack' ),
+			'label' => __( 'Background Color', '3r-elementor-timeline-widget' ),
 			'type' => \Elementor\Controls_Manager::COLOR,
 			'selectors' => [
 					'{{WRAPPER}} .be-pack .timeline-panel' => 'background-color: {{bg_color}}',
@@ -271,6 +272,16 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 				],
 			'default' => '#fff',
 		]
+		);
+		$this->add_control(
+			'circle_color', [
+				'label' => __( 'Circle Border Color', '3r-elementor-timeline-widget' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .timeline li .tl-circ' => 'background: {{circle_color}};border:5px solid #e6e6e6',
+					' .timeline li .timeline-panel:before' => 'border-left:15px solid {{circle_color}}; border-right:0px solid {{theme_color}};',
+				],
+			]
 		);
 		
 		$this->add_group_control(
@@ -283,10 +294,10 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
          $this->add_control(
 			'tl_change_direction',
 			[
-				'label' => __( 'Direction', 'aep' ),
+				'label' => __( 'Direction', '3r-elementor-timeline-widget' ),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => __( 'Left', 'aep' ),
-				'label_off' => __( 'Right', 'aep' ),
+				'label_on' => __( 'Left', '3r-elementor-timeline-widget' ),
+				'label_off' => __( 'Right', '3r-elementor-timeline-widget' ),
 				'return_value' => 'left',
 				'default' => 'left',
                 'separator'=>'before'
@@ -297,14 +308,14 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'image_style',
 			[
-				'label' => __( 'Image Style', 'be-pack' ),
+				'label' => __( 'Image Style', '3r-elementor-timeline-widget' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
 			'border_radius',
 			[
-				'label' => __( 'Border Radius', 'be-pack' ),
+				'label' => __( 'Border Radius', '3r-elementor-timeline-widget' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
@@ -322,11 +333,29 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 		$this->add_control(
 			'gap',
 			[
-				'label' => __( 'Image Padding', 'be-pack' ),
+				'label' => __( 'Image Padding', '3r-elementor-timeline-widget' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors' => [
 					'{{WRAPPER}} .be-pack.timeline .timeline_pic' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'default'=>[
+					'top' =>15,
+					'right' => 15,
+					'bottom' => 15,
+					'left' => 15,
+					'isLinked' => true,
+				],
+			]
+		);
+		$this->add_control(
+			'img_margin',
+			[
+				'label' => __( 'Image Margin', '3r-elementor-timeline-widget' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .be-pack.timeline .timeline_pic' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'default'=>[
 					'top' =>15,
@@ -381,7 +410,23 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 			  <div class="timeline-panel">
 				<div class="tl-heading">
 					<div class="tl-content">
-						<?php echo $image;?>
+						<?php 
+						echo wp_kses(
+							$image,
+							array(
+								'img' => array(
+									'src'  => array(),
+									'title' => array(),
+									'width' => array(),
+									'height' => array(),
+									'class' => array(),
+								),
+								'div'     => array(
+									'class' => array(),
+								),
+							)
+						); 
+						?>
 						<div class="be-desc">
 						<?php 
 						$title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', Utils::validate_html_tag( $settings['header_size'] ), $this->get_render_attribute_string( 'title' ), $content['list_title']);
@@ -402,61 +447,5 @@ class Be_Pack_Widget_Timeline extends Widget_Base {
 	<?php }
 
 
-
-	 protected function content_template() {
-		?>
-		<ul class="be-pack timeline">
-		<#
-         var direction = settings.tl_change_direction;
-         var count = direction =='left' ? 1 : 2;
-         
-			if ( settings.list ) {
-				_.each( settings.list, function( item, index ) {
-					count = count+1;
-					if(count % 2==0){
-				#>
-				<li class="timeline-inverted">
-				<# }else{ #>
-				<li class="timeline-right">
-				<# } #>
-					<div class="tl-circ"></div>
-					<div class="timeline-panel">
-						<#
-							var image = {
-								id: item.image.id,
-								url: item.image.url,
-								size: item.thumbnail_size,
-								dimension: item.thumbnail_custom_dimension,
-								model: view.getEditModel()
-							};
-							var image_url = elementor.imagesManager.getImageUrl( image );
-						#>
-						<div class="tl-heading">
-							<div class="tl-content">
-							<# if(item.image.id!=""){
-								var $class="be-title";
-							#>
-								<div class="timeline_pic pull-left">
-									<img src="{{{ image_url }}}">
-								</div>
-							<# }else{ 
-								var $class= "be-title d-block";
-							}
-							#>
-								  <div class="be-desc">
-								    <h4 class="{{{ $class }}}">{{{ item.list_title }}}</h4>
-									<div class="be-content">{{{ item.list_content }}}</div>
-								  </div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<#
-				});
-			}
-		#>
-		</ul>
-	<?php
-	}
 }
-\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Be_Pack_Widget_Timeline() );
+\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TweTimelineWidget() );

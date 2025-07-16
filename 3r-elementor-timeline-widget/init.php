@@ -1,30 +1,34 @@
 <?php
 
-/**
- * Plugin Name: 3r Elementor Timeline Widget
- * Description: 3r Elementor Timeline Widget Plugin add timeline element to Elementor Page builder.
+/*
+ * Plugin Name: Timeline Widget for Elementor
+ * Description: Timeline Widget for Elementor Plugin add timeline element to Elementor Page builder.
  * Plugin URI: https://wordpress.org/plugins/3r-elementor-timeline-widget
- * Version: 2.4
+ * Version:2.6
+ * Requires at least: 5.2
+ * Requires PHP:7.2
  * Author: B.M. Rafiul Alam
  * Author URI: https://themesbyte.com/
- * Text Domain: be-pack
- * Elementor requires at least: 3.0.0
- * Elementor tested up to: 3.28.3
+ * License:GPL v2 or later
+ * License URI:https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: 3r-elementor-timeline-widget
+ * Requires Plugins: elementor
  */
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'THREE_ELEMENTOR_URL', plugins_url( '/', __FILE__ ) );
-define( 'THREE_ELEMENTOR_PATH', plugin_dir_path(__FILE__));
+define( 'TWE_PLUGIN_URL', plugins_url( '/', __FILE__ ) );
+define( 'TWE_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
 
-add_action( 'elementor/preview/enqueue_styles', 'three_elementor_enqueue_style' );
-add_action('wp_enqueue_scripts', 'three_elementor_enqueue_style');
+add_action( 'elementor/preview/enqueue_styles', 'twe_enqueue_style' );
+add_action('wp_enqueue_scripts', 'twe_enqueue_style');
 
-function three_elementor_enqueue_style() {
-    wp_enqueue_style( 'three-preview', THREE_ELEMENTOR_URL  . 'assets/css/style.css', array());
+function twe_enqueue_style() {
+    wp_enqueue_style( 'twe-preview', TWE_PLUGIN_URL  . 'assets/css/style.css', array());
 }
 
-class TimelinePlugin {
+class TweTimelinePlugin {
  
    private static $instance = null;
  
@@ -57,4 +61,4 @@ class TimelinePlugin {
    }
 }
  
-TimelinePlugin::get_instance()->init();
+TweTimelinePlugin::get_instance()->init();
