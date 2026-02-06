@@ -7,6 +7,7 @@
   list-style: none;
   padding: 20px 0 20px;
   position: relative;
+  padding-left: 0px !important;
 }
 .timeline:before {
   top: 0;
@@ -61,6 +62,7 @@
   -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
+
 .timeline li .timeline-panel:before {
   position: absolute;
   top: 26px;
@@ -126,12 +128,15 @@
 .timeline-panel {
   /* display:flex */
 }
-.tl-heading h4 {
+.tl-heading h4{
   margin: 0;
   /* font-weight: 400; */
   font-size: 18px;
   color: #2b3138;
   text-transform: uppercase;
+}
+.tl-heading .be-title{
+   color: #2b3138;
 }
 .tl-body p,
 .tl-body ul {
@@ -146,7 +151,7 @@
   }
 }
 @media (max-width: 700px) {
-  ul.timeline:before {
+  ul.timeline:before , .timeline.timeline-one-sided:before{
     left: 40px;
   }
   .tldate {
@@ -213,3 +218,101 @@
   justify-content: center;
   align-items: center;
 }
+
+/* ================================
+   ONE SIDED RIGHT TIMELINE
+================================ */
+.timeline.timeline-one-sided .tl-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.timeline.timeline-one-sided:before {
+  left: 33.70%;
+}
+
+.timeline.timeline-one-sided li {
+  padding-left: 0px;
+}
+ .timeline.timeline-one-sided .be-title{
+    margin-bottom: 0px;
+  }
+.timeline.timeline-one-sided li .timeline-panel {
+  float: right;
+  width: calc(70% - 90px);
+  padding: 15px;
+}
+
+.timeline.timeline-one-sided li.timeline-inverted .timeline-panel {
+  float: right;
+}
+
+.timeline.timeline-one-sided li .timeline-panel:before {
+  left: -15px;
+  right: auto;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+
+.timeline.timeline-one-sided li .timeline-panel:after {
+  left: -14px;
+  right: auto;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+
+.timeline.timeline-one-sided li .tl-circ {
+     left: 32.5%;
+  margin-left: 0;
+}
+
+
+/* =======================
+   ONE SIDED – MOBILE 
+======================= */
+@media (max-width: 700px) {
+
+  /* move line to left like vertical */
+  .timeline.timeline-one-sided:before {
+    left: 40px;
+  }
+
+  /* full-width panels */
+  .timeline.timeline-one-sided li .timeline-panel {
+    width: calc(100% - 90px);
+    float: right;
+  }
+   .timeline.timeline-one-sided .be-title{
+    margin-bottom: 15px;
+  }
+
+
+  /* arrow direction (same as vertical mobile) */
+  .timeline.timeline-one-sided li .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+  }
+
+  .timeline.timeline-one-sided li .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+  }
+
+  /* circle position */
+  .timeline.timeline-one-sided li .tl-circ {
+    left: 28px;
+    top: 22px;
+    margin-left: 0;
+  }
+
+  /* ensure consistent stacking */
+  .timeline.timeline-one-sided li {
+    padding-left: 0;
+  }
+}
+
+
