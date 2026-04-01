@@ -5,7 +5,7 @@ Tags: Elementor, vertical-timeline, elementor-timeline, timeline, widget
 Requires at least: 5.2
 Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 2.7.2
+Stable tag: 2.7.3
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -83,6 +83,9 @@ Not at all. Everything is controlled through Elementor's visual editor.
 You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team helps validate, triage, and handle any security vulnerabilities. [Report a security vulnerability](https://patchstack.com/database/vdp/template-events-calendar).
 
 == Changelog ==
+= Version 2.7.3 | 1 April 2026 =
+* **Tested up to Elementor  4.0.0.
+* **Tested up to Elementor Pro 4.0.0.
 
 = Version 2.7.2 | 29 January 2026 =
 * **Fixed:** Issues reported by “Plugin Check” plugin.
