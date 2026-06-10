@@ -4,6 +4,7 @@
  *
  * @since 1.0.0
  */
+
 namespace twe\Widgets;
 
 use Elementor\Widget_Base;
@@ -19,7 +20,7 @@ use Elementor\Scheme_Typography;
 use Elementor\Scheme_Color;
 use Elementor\Group_Control_Text_Shadow;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
 class TweTimelineWidget extends Widget_Base {
 	/**
 	 * Get widget name.
@@ -112,7 +113,7 @@ class TweTimelineWidget extends Widget_Base {
 		$repeater->add_control(
 			'twe_show_year_label',
 			array(
-				'label'        => __( 'Year / Label (Top) <a href="https://cooltimeline.com/elementor-widget/vertical-timeline-widget-for-elementor/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=demo&utm_content=content_tab_settings" target="_blank" style=" pointer-events: all; color:  #EDACFB;">(Demo ⇗)</a>', '3r-elementor-timeline-widget' ),
+				'label'        => __( 'Year / Label (Top) <a href="https://cooltimeline.com/elementor-widget/vertical-timeline-widget-for-elementor/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=demo&utm_content=content_tab_settings" target="_blank" rel="noopener noreferrer" style=" pointer-events: all; color:  #EDACFB;">(Demo ⇗)</a>', '3r-elementor-timeline-widget' ),
 				'type'         => \Elementor\Controls_Manager::SWITCHER,
 				'label_on'     => __( 'Show', 'twae' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- using shared text domain intentionally
 				'label_off'    => __( 'Hide', 'twae' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- using shared text domain intentionally
@@ -162,7 +163,7 @@ class TweTimelineWidget extends Widget_Base {
 					'raw'  => '
 						<div class="twae-upgrade-content-notice">
 							<a href="https://cooltimeline.com/plugin/elementor-timeline-widget-pro/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=get_pro&utm_content=content_tab_settings#pricing" 
-							target="_blank" 
+							target="_blank" rel="noopener noreferrer"
 							class="twae-upgrade-link">
 								UPGRADE TO PRO 💎
 							</a>
@@ -221,7 +222,7 @@ class TweTimelineWidget extends Widget_Base {
 					'raw'  => '
 						<div class="twae-upgrade-color-notice">
 							<a href="https://cooltimeline.com/plugin/elementor-timeline-widget-pro/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=get_pro&utm_content=advanced_tab_settings#pricing" 
-							target="_blank" 
+							target="_blank" rel="noopener noreferrer"
 							class="twae-upgrade-link">
 								UPGRADE TO PRO 💎
 							</a>
@@ -324,8 +325,12 @@ class TweTimelineWidget extends Widget_Base {
 						'list_title' => __( 'Timeline', '3r-elementor-timeline-widget' ),
 						'list_content' => __( 'Item content. Click the edit button to change this text.', '3r-elementor-timeline-widget' ),
 					],
+					[
+						'list_title' => __( 'Timeline', '3r-elementor-timeline-widget' ),
+						'list_content' => __( 'Item content. Click the edit button to change this text.', '3r-elementor-timeline-widget' ),
+					],
 				],
-				'title_field' => '{{{ list_title }}}',
+				'title_field' => '{{{ elementor.helpers.sanitize( list_title ) }}}',
 			]
 		);
           
@@ -794,10 +799,9 @@ class TweTimelineWidget extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		$is_one_sided = ( isset( $settings['twe_layout'] ) && $settings['twe_layout'] === 'one-sided' );
 		$direction = isset($settings['tl_change_direction']) ? $settings['tl_change_direction'] : '';
-		$data	  = $settings['list'];
+		$data	  = !empty($settings['list']) && is_array($settings['list']) ? $settings['list'] : [];
 		$this->add_render_attribute( 'title', 'class', 'be-title' );
         $direction = in_array($direction, array('left', ''), true) ? $direction : '';
-        $count = $direction =='left' ? 1 : 2;
 
 		$layout_class = ( isset( $settings['twe_layout'] ) && $settings['twe_layout'] === 'one-sided' )
 			? 'timeline-one-sided'
@@ -805,12 +809,14 @@ class TweTimelineWidget extends Widget_Base {
 
 		echo '<ul class="be-pack timeline ' . esc_attr( $layout_class ) . '">';
         
-		// echo '<ul class="be-pack timeline">';
 		$count = ( $direction === 'left' ) ? 1 : 0;
+		if ( empty( $data ) ) {
+			echo '</ul>'; return;
+		}
 		foreach($data as $index=>$content){
 		    $title_html = sprintf(
 				'<%1$s %2$s>%3$s</%1$s>',
-				Utils::validate_html_tag( $settings['header_size'] ),
+				Utils::validate_html_tag( isset($settings['header_size']) ? $settings['header_size'] : 'h2' ),
 				$this->get_render_attribute_string( 'title' ),
 				esc_html( $content['list_title'] )
 			);
@@ -923,4 +929,4 @@ class TweTimelineWidget extends Widget_Base {
 
 
 }
-\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new TweTimelineWidget() );
+\Elementor\Plugin::instance()->widgets_manager->register( new TweTimelineWidget() );

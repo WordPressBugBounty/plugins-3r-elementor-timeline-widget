@@ -3,9 +3,9 @@ Contributors: satindersingh,coolplugins,narinder-singh,rafiul17
 Donate link: https://paypal.me/CoolPlugins/10USD/
 Tags: Elementor, vertical-timeline, elementor-timeline, timeline, widget
 Requires at least: 5.2
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.2
-Stable tag: 2.7.3
+Stable tag: 2.7.4
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
  
@@ -70,7 +70,7 @@ Yes. Vertical Timeline Widget for Elementor works perfectly with the free versio
 =Can I display timelines on both sides?=
 Yes. You can choose between a one-sided vertical layout or a both-sided layout for your timeline story.
 
-=Can I add images/videos/slideshows to timeline stories?
+=Can I add images/videos/slideshows to timeline stories?=
 Yes, you can add images to each timeline story, but to add videos and slideshows, you'll need to upgrade to Timeline Widget Pro for Elementor.
 
 =Will my timeline data be lost after upgrading?=
@@ -83,9 +83,14 @@ Not at all. Everything is controlled through Elementor's visual editor.
 You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team helps validate, triage, and handle any security vulnerabilities. [Report a security vulnerability](https://patchstack.com/database/vdp/template-events-calendar).
 
 == Changelog ==
+
+= Version 2.7.4 | 10 June 2026 =
+* Improved: Code Improvements & Optimization.
+* Tested up to Elementor Pro 4.1.2.
+
 = Version 2.7.3 | 1 April 2026 =
-* **Tested up to Elementor  4.0.0.
-* **Tested up to Elementor Pro 4.0.0.
+* Tested up to Elementor  4.0.0.
+* Tested up to Elementor Pro 4.0.0.
 
 = Version 2.7.2 | 29 January 2026 =
 * **Fixed:** Issues reported by “Plugin Check” plugin.
