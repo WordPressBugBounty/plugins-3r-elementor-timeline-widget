@@ -11,7 +11,7 @@ jQuery(document).on('click', '.twae_hide_upgrade_notice_editor', function () {
         },
        
         
-        success: function (response) {
+        success: function () {
              $notice.slideUp(300, function () {
                 $notice.remove(); 
             });

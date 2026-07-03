@@ -4,7 +4,7 @@
  * Plugin Name: Vertical Timeline Widget for Elementor
  * Description: Vertical Timeline Widget for Elementor Plugin add timeline element to Elementor Page builder.
  * Plugin URI: https://wordpress.org/plugins/3r-elementor-timeline-widget
- * Version:2.7.4
+ * Version:2.7.5
  * Requires at least: 5.2
  * Requires PHP:7.2
  * Author: Cool Plugins
@@ -17,9 +17,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-if( !defined( 'TWE_VERSION' ) ){ define( 'TWE_VERSION', '2.7.4' ); }
-define( 'TWE_PLUGIN_URL', plugins_url( '/', __FILE__ ) );
-define( 'TWE_PLUGIN_PATH', plugin_dir_path(__FILE__));
+if( !defined( 'TWE_VERSION' ) ){ define( 'TWE_VERSION', '2.7.5' ); }
+if( !defined( 'TWE_PLUGIN_URL' ) ){ define( 'TWE_PLUGIN_URL', plugins_url( '/', __FILE__ ) ); }
+if( !defined( 'TWE_PLUGIN_PATH' ) ){ define( 'TWE_PLUGIN_PATH', plugin_dir_path(__FILE__)); }
 add_action( 'elementor/preview/enqueue_styles', 'twe_enqueue_style' );
 add_action('wp_enqueue_scripts', 'twe_enqueue_style');
 add_action( 'elementor/editor/after_enqueue_styles','twe_enqueue_editor_style' );
@@ -66,8 +66,13 @@ function twe_enqueue_editor_script()  {
  * @return void
  */
 
-function twe_enqueue_style() {
-	wp_enqueue_style( 'twe-preview', TWE_PLUGIN_URL . 'assets/css/style.css', array(),   TWE_VERSION);
+ function twe_enqueue_style() {
+	wp_register_style(
+		'twe-preview',
+		TWE_PLUGIN_URL . 'assets/css/style.css',
+		array(),
+		TWE_VERSION
+	);
 }
 
 
@@ -88,7 +93,7 @@ class TweTimelinePlugin {
    public function widgets_registered() {
 
       if ( defined('ELEMENTOR_PATH') && class_exists('Elementor\Widget_Base') ) {
-         $template_file = plugin_dir_path(__FILE__) . 'timeline-widget.php';
+         $template_file = TWE_PLUGIN_PATH . 'timeline-widget.php';
      
          if ( is_readable($template_file) ) {
              require_once $template_file;
@@ -108,8 +113,7 @@ add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'twe_add_pro_lin
  */
 
 function twe_add_pro_link( $links ) {
-    $links[] = '<a style="font-weight:bold; color:#852636;" href="https://cooltimeline.com/plugin/elementor-timeline-widget-pro/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=get_pro&utm_content=plugins_list#pricing" target="_blank" rel="noopener noreferrer">Get Pro</a>';
-    return $links;
+    $links[] = '<a style="font-weight:bold; color:#852636;" href="' . esc_url( 'https://cooltimeline.com/plugin/elementor-timeline-widget-pro/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=get_pro&utm_content=plugins_list#pricing' ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Get Pro', '3r-elementor-timeline-widget' ) . '</a>';    return $links;
 }
 add_filter( 'plugin_row_meta', 'twe_add_view_demo_row_meta', 10, 2 );
 
@@ -121,8 +125,7 @@ add_filter( 'plugin_row_meta', 'twe_add_view_demo_row_meta', 10, 2 );
 
 function twe_add_view_demo_row_meta( $links, $file ) {
     if ( $file === plugin_basename( __FILE__ ) ) {
-        $demo_link = '<a href="https://cooltimeline.com/elementor-widget/vertical-timeline-widget-for-elementor/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=demo&utm_content=plugins_list" target="_blank" rel="noopener noreferrer>View Demo</a>';
-        array_splice( $links, count( $links ), 0, $demo_link );
+        $demo_link = '<a href="' . esc_url( 'https://cooltimeline.com/elementor-widget/vertical-timeline-widget-for-elementor/?utm_source=vtwe_plugin&utm_medium=inside&utm_campaign=demo&utm_content=plugins_list' ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'View Demo', '3r-elementor-timeline-widget' ) . '</a>';        array_splice( $links, count( $links ), 0, $demo_link );
     }
     return $links;
 }
