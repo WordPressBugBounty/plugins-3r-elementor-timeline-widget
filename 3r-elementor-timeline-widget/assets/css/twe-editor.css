@@ -20,30 +20,19 @@
     margin-left: 5px;
     margin-right: 5px;
 }
-.elementor-control-twe_show_year_label_demo{
-    position: absolute;
-    top : 2px; 
-}
 .elementor-control-twe_show_year_label{
     padding: 14px 10px 9px 10px !important;
      border-top: 1px solid #2563EB;
     border-bottom: none;
 }
-.elementor-control-twe_extra_label{
-    padding: 0px 11px 19px 9px !important;
-    margin-bottom: 5px;
-    border-top: none; 
-}
+
  .elementor-control-twe_media{
    pointer-events: none !important;
     padding: 0px 12px 24px 9px !important;
    border-bottom: 1px solid #2563EB;
 }
 
-.elementor-control-twe_custom_cbox_connector_bg_color,
-.elementor-control-twe_custom_icon_bgcolor,
 .elementor-control-twe_custom_description_color,
-.elementor-control-twe_custom_title_icon_bgc,
 .elementor-control-twe_custom_story_title_color,
 .elementor-control-twe_custom_story_bdcolor,
 .elementor-control-twe_custom_story_bgcolor,

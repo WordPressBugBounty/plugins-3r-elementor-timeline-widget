@@ -197,10 +197,6 @@
   padding: 15px;
 }
 
-.timeline.timeline-one-sided li.timeline-inverted .timeline-panel {
-  float: right;
-}
-
 .timeline.timeline-one-sided li .timeline-panel:before {
   left: -15px;
   right: auto;
